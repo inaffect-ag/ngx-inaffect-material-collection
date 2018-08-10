@@ -1,1 +1,106 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink";
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Custom black as primary
+$mat-mcgpalette-black: (
+    50 : #e0e0e0,
+    100 : #b3b3b3,
+    200 : #808080,
+    300 : #4d4d4d,
+    400 : #262626,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #a6a6a6,
+    A200 : #8c8c8c,
+    A400 : #737373,
+    A700 : #666666,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+// Accent Lime Green
+$mat-mcgpalette-green: (
+    50 : #eeffe6,
+    100 : #d5ffc0,
+    200 : #b9ff97,
+    300 : #9dff6d,
+    400 : #88ff4d,
+    500 : #73ff2e,
+    600 : #6bff29,
+    700 : #60ff23,
+    800 : #56ff1d,
+    900 : #43ff12,
+    A100 : #ffffff,
+    A200 : #fafff9,
+    A400 : #d0ffc6,
+    A700 : #bbffad,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+// $candy-app-primary: mat-palette($mat-indigo);
+// $candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$sm-primary: mat-palette($mat-mcgpalette-black);
+$sm-accent: mat-palette($mat-mcgpalette-green);
+
+// The warn palette is optional (defaults to red).
+$sm-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$screen-manager-theme: mat-light-theme($sm-primary, $sm-accent, $sm-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($screen-manager-theme);
+
+$gt-sm: 959px;
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  @media only screen and (max-width: 1099px){ 
+    // padding-bottom: 68px;
+  }
+}
